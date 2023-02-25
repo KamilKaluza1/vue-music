@@ -10,7 +10,8 @@ const useCollection = (collection) => {
 
 
         try{
-            await projectFirestore.collection(collection).add(doc)
+            const res = await projectFirestore.collection(collection).add(doc)
+            return res
         }catch(err){
             console.log(err.message)
             error.value = 'can not send the message '
