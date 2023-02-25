@@ -8,29 +8,46 @@
       <h2>{{ document.title }}</h2>
       <p class="username">Created by {{ document.userName }}</p>
       <p class="description">{{ document.description }}</p>
-      <button v-if="ownership">Delete</button>
+      <button v-if="ownership" @click.prevent="handleClick">Delete</button>
     </div>
     
 
     <div class="songs-list">
       <p>song1</p>
+      <AddSong v-if="ownership" :document="document"/>
     </div>
   </div>
 </template>
 
 <script>
+import useDocument from '@/composables/useDocument'
 import getDocument from "@/composables/getDocument";
 import getUser from "@/composables/getUser";
 import {computed} from 'vue'
+import router from '@/router';
+import useStorage from '@/composables/useStorage';
+import AddSong from '@/components/AddSong.vue'
 export default {
+  components: {AddSong},
   props: ["id"],
   setup(props) {
+    const{deleteImage} = useStorage()
     const {user} = getUser()
     const { document, error } = getDocument("playlists", props.id);
     const ownership = computed(()=>{
         return document.value && user.value && document.value.userId === user.value.uid
     })
-    return { document, error, ownership };
+    const { deleteDoc } = useDocument('playlists', props.id)
+    const handleClick = async() =>{
+        try{
+            await deleteImage(document.value.filePath)
+            await deleteDoc()
+            router.push({name:'home'})
+        }catch(err){
+            console.log(err)
+        }
+    }
+    return { document, error, ownership, handleClick };
   },
 };
 </script>
