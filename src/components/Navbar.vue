@@ -62,9 +62,27 @@ nav .links {
 nav .links a {
   margin-left: 16px;
   font-size: 14px;
+  text-align: center;
 }
 
 nav img {
   max-height: 60px;
+}
+@media screen and (max-width: 800px) {
+  nav .links {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+nav .links a {
+  margin-left: 0px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.navbar {
+  padding: 0 10px;
+}
+}
+button{
+  margin-top: 5px;
 }
 </style>

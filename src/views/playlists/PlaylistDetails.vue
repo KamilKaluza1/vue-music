@@ -118,4 +118,12 @@ export default {
   border-bottom: 1px solid var(--secondary);
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 800px) {
+  .playlist-details {
+  display: grid;
+  grid-template-columns: 1fr ;
+  gap: 0px;
+}
+}
 </style>
