@@ -32,8 +32,6 @@ Users should be able to:
 
 - Live Site URL: [https://vue-music-39298.web.app/](https://vue-music-39298.web.app/)
 
-## My process
-
 ### Built with
 
 - CSS custom properties
