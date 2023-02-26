@@ -15,6 +15,14 @@ const requireAuth = (to, from, next) =>{
     next()
   }
 }
+const alreadyAuth = (to, from, next) =>{
+  let user = projectAuth.currentUser
+  if(user){
+    next({name:'home'})
+  }else{
+    next()
+  }
+}
 
 const routes = [
   {
@@ -26,12 +34,15 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    beforeEnter: alreadyAuth
   },
   {
     path: '/signup',
     name: 'signup',
-    component: Signup
+    component: Signup,
+    beforeEnter: alreadyAuth
+
   },
   {
     path: '/playlist/create',
