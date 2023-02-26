@@ -16,8 +16,7 @@
 Playlist Page
 Users should be able to:
 
-- Sing in
-- Log out
+- Sing in / Log out
 - Add New Playlist with custom cover
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for Playlist interactive elements on the page
