@@ -18,7 +18,7 @@
         <h3>{{ song.title }}</h3>
         <p>{{ song.artist }}</p>
       </div>
-      <button @click="deleteSong(song.id)">Delete</button>
+      <button v-if="ownership" @click="deleteSong(song.id)">Delete</button>
       
       </div>
       <AddSong v-if="ownership" :document="document"/>
