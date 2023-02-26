@@ -50,6 +50,7 @@ Users should be able to:
 - Add Like buttons
 - Add Like counters 
 - User profile 
+- Ability to add comments to playlists
 
 
 
